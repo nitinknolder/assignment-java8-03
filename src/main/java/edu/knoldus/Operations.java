@@ -36,10 +36,10 @@ public class Operations {
      * Get TimeZone in Particular UTC format.
      */
 
-    public static String getTimeZone(String timeZone) {
+    public static ZonedDateTime getTimeZone(String timeZone) {
         ZoneId europeBerlin = ZoneId.of(timeZone);
         ZonedDateTime europeBerlinTimeZone = ZonedDateTime.now(europeBerlin);
-        return "Europe/BerlinDateTime  " + europeBerlinTimeZone;
+        return europeBerlinTimeZone;
     }
 
     /**
@@ -50,16 +50,16 @@ public class Operations {
         LocalDateTime birthDate = LocalDateTime.of(1869, 10, 02, 7, 8, 12);
         LocalDateTime deathDate = LocalDateTime.of(1948, 1, 30, 12, 00, 00);
         LocalDateTime tempDateTime = LocalDateTime.from(birthDate);
-        long lifeInseconds = tempDateTime.until(deathDate, ChronoUnit.SECONDS);
-        return lifeInseconds;
+        long lifeInSeconds = tempDateTime.until(deathDate, ChronoUnit.SECONDS);
+        return lifeInSeconds;
     }
 
     /**
      * Find List of All Leap Years from 1991 to Current year.
      */
-    public List<Integer> findLeapyear() {
+    public List<Integer> findLeapYear() {
 
-        LocalDate startingYear = LocalDate.ofEpochDay(1991);
+        LocalDate startingYear = LocalDate.ofYearDay(1991,15);
         LocalDate currentYear = LocalDate.now();
         List<LocalDate> listOfAllLeapYears = new ArrayList<>();
         for (int year = startingYear.getYear(); year < currentYear.getYear(); year++) {

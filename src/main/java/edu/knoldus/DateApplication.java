@@ -16,6 +16,6 @@ public class DateApplication {
         System.out.println(dateObject.mahatmaGandhiLived());
 
         System.out.println("<---- Leap Year From 1991 to 2018 are ---->");
-        dateObject.findLeapyear().forEach(System.out::println);
+        dateObject.findLeapYear().forEach(System.out::println);
     }
 }
